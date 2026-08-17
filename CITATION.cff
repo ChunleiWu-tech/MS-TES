@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its derived data, cite the archived v10.1.0 record and the associated manuscript."
+title: "MS-TES evidence-bounded molten-salt screening and decision framework"
+type: software
+authors:
+  - family-names: Wu
+    given-names: Chunlei
+  - family-names: Wang
+    given-names: Xiang
+  - family-names: Wang
+    given-names: Xinmin
+  - family-names: Sun
+    given-names: Shipeng
+version: "10.1.0"
+date-released: 2026-08-17
+repository-code: "https://github.com/ChunleiWu-tech/MS-TES"
+license: MIT
+

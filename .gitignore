@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+upstream_reproducible_code/outputs/tables/*
+upstream_reproducible_code/outputs/qc/*
+postprocess_reproducible_code/outputs/main_figures/*
+postprocess_reproducible_code/outputs/supplementary_figures/*
+postprocess_reproducible_code/outputs/contact_sheets/*
+postprocess_reproducible_code/outputs/qa/*
+postprocess_reproducible_code/outputs/qc/*
+

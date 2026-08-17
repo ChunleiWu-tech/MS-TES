@@ -1,69 +1,60 @@
-# Upstream reproducible code
+# MS-TES: evidence-bounded molten-salt screening for thermal energy storage
 
-This source-only package regenerates all scientific tables used by the manuscript from the included registered inputs and raw database archives. It contains **no generated result tables** and no font files.
+This repository contains release `v10.1.0` of the reproducible code for the manuscript "Validity-domain auditing and engineering evidence reshape service-specific molten-salt rankings for thermal energy storage".
 
-## Requirements
+## What changed in v10.1.0
 
-- 64-bit CPython 3.12
-- Exact packages in `requirements-lock.txt`
-- At least 4 GB available RAM
-- Sufficient free disk space for the approximately 200 MB draw-level CSV and downstream tables
+The codebase now implements one traceable scientific chain:
 
-Arial is not required for upstream calculation. Its availability is reported only for handoff to the post-processing package, where Arial is mandatory.
+1. Screen official composition records without pooling incompatible evidence objects.
+2. Canonically deduplicate the expanded library into 142 exact compositions.
+3. Evaluate 994 candidate-service pairs across seven TES duties.
+4. Separate physical-window compatibility, quantitative thermophysical coverage, service-domain support and linkage to the frozen engineering registry.
+5. Preserve a strict boundary between thermophysical opportunity and formal evidence-bounded selection.
+6. Trace decision uncertainty back to registered properties, evidence gaps and precedence-valid research actions.
 
-## Windows PowerShell / VS Code
+The resulting contraction is 142 candidates to 994 pairs, 76 physically compatible pairs, 18 quantitative pairs, 11 service-domain-supported pairs and 8 pairs linked to the frozen engineering registry.
+
+A newly documented 2025 NaCl-KCl-CaCl2 composition reaches a 23.48% PCM500 thermophysical rank-1 frequency in the opportunity layer. It is outside the frozen engineering registry, so no formal outcome is assigned. This counterexample supports the central conclusion: there is no universal best salt, and thermophysical rank alone is not a decision.
+
+## Download files
+
+- `TES_v10.1.0_upstream_source_only.zip`: complete model code, registered inputs, raw database archives and provenance. Generated 20,000-draw tables are omitted and recreated by the registered run.
+- `TES_v10.1.0_postprocess_source_only.zip`: current figure renderer and publication QA. It synchronizes the sibling upstream results at run time.
+- `SHA256SUMS.txt`: integrity hashes for all release files.
+
+The source-only split keeps the repository compact. The omitted upstream output directory is approximately 341 MB and is entirely regenerable from the included inputs and code.
+
+## Reproduce the release
+
+Unpack the two archives side by side. On Windows:
 
 ```powershell
-cd "$env:USERPROFILE\Desktop\upstream_reproducible_code"
+cd upstream_reproducible_code
 .\SETUP_ENV.bat
 .\RUN_FULL_RECOMPUTE.bat
+
+cd ..\postprocess_reproducible_code
+.\SETUP_ENV.bat
+.\RUN_POSTPROCESS.bat
 ```
 
-The formal runner always forces the registered **20,000 Monte Carlo draws**, enables Python fault handling, and limits OpenMP/OpenBLAS/MKL/NumExpr to one thread.
+On Linux or macOS, use the corresponding `.sh` wrappers.
 
-The run is complete only when the terminal prints:
+Release requirements:
 
-```text
-Upstream full recompute completed successfully.
-```
+- 64-bit CPython 3.12;
+- exact packages from `requirements-lock.txt`;
+- at least 4 GB RAM and 1 GB free disk space;
+- Arial installed locally for final figure export.
 
-The canonical final status is:
+The registered upstream workflow uses 20,000 Monte Carlo draws. The current post-processing release generates six main figures and twelve supplementary figures and passes 42 scientific, semantic and visual checks.
 
-```text
-outputs\qc\UPSTREAM_RELEASE_STATUS.json
-```
+## Citation and versions
 
-It must contain:
+For exact reproducibility, cite the DOI of the specific archived version. The Zenodo Concept DOI may be used when the intention is to resolve to the latest version of this evolving codebase. Previous releases remain available and are not overwritten.
 
-```json
-{
-  "status": "PASS",
-  "science_changed": false,
-  "mc_iterations": 20000
-}
-```
+## Licences
 
-`submission_UPSTREAM_STATUS.json` is retained only as an identical compatibility alias. `validate_release_contract.py` fails the run if the two files disagree or any producer/consumer filename is missing.
+Project code is released under the MIT License. Project-authored derived data and evidence classifications are released under CC BY 4.0. Third-party database and literature content retains its original terms; provenance and source boundaries are recorded in the included ledgers.
 
-## Linux/macOS
-
-```bash
-./SETUP_ENV.sh
-./RUN_FULL_RECOMPUTE.sh
-```
-
-## Non-publication smoke test
-
-```powershell
-.\RUN_SMOKE_TEST.bat
-```
-
-The smoke test uses 500 draws and now exercises the contract-table and independent scoring-audit stages in addition to the core calculation. Its outputs must never be synchronised into the submission post-processing package.
-
-## Windows stability implementation
-
-Draw-level rows are streamed candidate by candidate with Python's standard-library `csv` writer in bounded 2,000-row slices. The high-frequency draw export no longer calls `pandas.DataFrame.to_csv()`, thereby bypassing pandas' native `get_values_for_csv` conversion path that triggered Windows heap-corruption failures such as `0xC0000374`. Gate-reason and rank counts remain computed directly with NumPy.
-
-## Scientific boundaries
-
-The workflow preserves strict-complete service assessment, non-compensatory evidence gating, the registered ≥1% formal-selection threshold, separate continuous-variance and categorical-information attribution, and the registered evidence-action DAG. Model-estimated values remain outside formal evidence-bounded selection and are used only for audit or information extension.
