@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "target": "public GitHub repository and versioned DOI archive",
+  "archives": [
+    {
+      "archive": "TES_v10.1.0_upstream_source_only.zip",
+      "status": "PASS",
+      "members": 103,
+      "casefold_unique": true,
+      "zip_test": "PASS",
+      "manifest_rows": 101,
+      "manifest_missing": [],
+      "manifest_mismatch": [],
+      "forbidden_generated_entries": [],
+      "forbidden_runtime_entries": [],
+      "personal_path_or_secret_hits": []
+    },
+    {
+      "archive": "TES_v10.1.0_postprocess_source_only.zip",
+      "status": "PASS",
+      "members": 51,
+      "casefold_unique": true,
+      "zip_test": "PASS",
+      "manifest_rows": 49,
+      "manifest_missing": [],
+      "manifest_mismatch": [],
+      "forbidden_generated_entries": [],
+      "forbidden_runtime_entries": [],
+      "personal_path_or_secret_hits": []
+    }
+  ]
+}

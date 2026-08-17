@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "release_id": "TES-PUB-V10.1.0-MANUSCRIPT-AUDITED-20260816",
+  "target_repository": "https://github.com/ChunleiWu-tech/MS-TES",
+  "upstream": {
+    "file": "TES_v10.1.0_upstream_source_only.zip",
+    "bytes": 5299568,
+    "sha256": "afed06d84d410e44965c16818fd51f3ba894d3768456091f0ec40405648d72ba",
+    "members": 103,
+    "largest_member_bytes": 4518441,
+    "zip_integrity": "PASS",
+    "python_files_syntax_checked": 43,
+    "contains_generated_tables": false,
+    "contains_generated_qc": false
+  },
+  "postprocess": {
+    "file": "TES_v10.1.0_postprocess_source_only.zip",
+    "bytes": 175535,
+    "sha256": "6044da8ea6376f508997da456c847c33eb7bbbab533bb5d572cc71625e55d146",
+    "members": 51,
+    "largest_member_bytes": 154728,
+    "zip_integrity": "PASS",
+    "python_files_syntax_checked": 12,
+    "contains_virtual_environment": false,
+    "contains_generated_figures": false
+  },
+  "all_browser_upload_files_below_25MiB": true,
+  "repository_file_count": 9
+}
